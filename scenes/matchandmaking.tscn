@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://sdkadgq6g1mq"]
+
+[ext_resource type="Script" uid="uid://dxxdyldjdwfvc" path="res://scripts/matchandmaking.gd" id="1_t252k"]
+
+[node name="Match and Making" type="Node2D" unique_id=1325832673]
+script = ExtResource("1_t252k")
+
+[node name="MatchMaking" type="Node2D" parent="." unique_id=1768198970]
+
+[node name="Background" type="ColorRect" parent="MatchMaking" unique_id=2075677858]
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0.7254902, 1, 1)
+
+[node name="Start" type="Button" parent="MatchMaking" unique_id=1437902470]
+offset_left = 568.0
+offset_top = 309.0
+offset_right = 614.0
+offset_bottom = 340.0
+text = "Start"
+
+[node name="Match" type="Node2D" parent="." unique_id=161910445]
+
+[connection signal="pressed" from="MatchMaking/Start" to="." method="_on_start_pressed"]

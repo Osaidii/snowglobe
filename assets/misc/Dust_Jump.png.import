@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tt5s786kkh3g"
-path="res://.godot/imported/world_tileset.png-ba5645a8bd3e6a8d90301374ce27cc24.ctex"
+uid="uid://cp1vfygro82te"
+path="res://.godot/imported/Dust_Jump.png-0ad1c8c9a8e59e181ab9debe413838ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/maps/map 1/world_tileset.png"
-dest_files=["res://.godot/imported/world_tileset.png-ba5645a8bd3e6a8d90301374ce27cc24.ctex"]
+source_file="res://assets/misc/Dust_Jump.png"
+dest_files=["res://.godot/imported/Dust_Jump.png-0ad1c8c9a8e59e181ab9debe413838ce.ctex"]
 
 [params]
 

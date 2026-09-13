@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgkbtpnmou1q3"
-path="res://.godot/imported/Idle.png-62340806100f7d2164cf561cf4d53776.ctex"
+uid="uid://b5wv37bjsise8"
+path="res://.godot/imported/Run.png-b209744b35614671c077d0c9f29b89bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/outfits/outfit 2/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-62340806100f7d2164cf561cf4d53776.ctex"]
+source_file="res://assets/outfits/outfit 5/Run.png"
+dest_files=["res://.godot/imported/Run.png-b209744b35614671c077d0c9f29b89bf.ctex"]
 
 [params]
 

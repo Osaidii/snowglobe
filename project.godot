@@ -11,14 +11,17 @@ config_version=5
 [application]
 
 config/name="Snowglobe"
-run/main_scene="uid://bymwcyrqq7kgc"
+run/main_scene="uid://daof72gx7ckp5"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/mode=2
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/scale_mode="integer"
 
 [editor_plugins]
 
@@ -73,6 +76,6 @@ left2={
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=3
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"

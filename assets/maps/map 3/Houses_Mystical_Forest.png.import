@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgkbtpnmou1q3"
-path="res://.godot/imported/Idle.png-62340806100f7d2164cf561cf4d53776.ctex"
+uid="uid://bdbbqkmwlao2f"
+path="res://.godot/imported/Houses_Mystical_Forest.png-186ce9c2eb8894cbea32ac5991db0c1c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/outfits/outfit 2/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-62340806100f7d2164cf561cf4d53776.ctex"]
+source_file="res://assets/maps/map 3/Houses_Mystical_Forest.png"
+dest_files=["res://.godot/imported/Houses_Mystical_Forest.png-186ce9c2eb8894cbea32ac5991db0c1c.ctex"]
 
 [params]
 

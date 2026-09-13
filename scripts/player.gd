@@ -1,37 +1,100 @@
 extends CharacterBody2D
 
 @export_category("Instance")
+@export var ID := 1
 @export var CONTROLS := 1
 @export var OUTFIT := 1
 @export_category("Stats")
-@export var NORMAL_SPEED := 200
-@export var TAGGER_SPEED := 300
+@export var NORMAL_SPEED := 120
+@export var TAGGER_SPEED := 250
 @export var JUMP_VELOCITY = -300.0
 @export_category("Data")
 @export var IS_TAGGER := false
 
-# Outfits
+@onready var coyote_timer: Timer = $"Coyote Timer"
+@onready var jump_buffer_timer: Timer = $"Jump Buffer timer"
 @onready var outfit_1: AnimatedSprite2D = $"Outfit 1"
 @onready var outfit_2: AnimatedSprite2D = $"Outfit 2"
+@onready var outfit_3: AnimatedSprite2D = $"Outfit 3"
+@onready var outfit_4: AnimatedSprite2D = $"Outfit 4"
+@onready var outfit_5: AnimatedSprite2D = $"Outfit 5"
+@onready var outfit_6: AnimatedSprite2D = $"Outfit 6"
 
 var animation: AnimatedSprite2D
-var direction: float
+var direction := 0.0
+var coyote_time_activated := false
+var jump_buffer := false
+
+func _ready() -> void:
+	# Set Outfit
+	if OUTFIT == 1:
+		animation = outfit_1
+		outfit_1.visible = true
+		outfit_2.visible = false
+		outfit_3.visible = false
+		outfit_4.visible = false
+		outfit_5.visible = false
+		outfit_6.visible = false
+	elif OUTFIT == 2:
+		animation = outfit_2
+		outfit_1.visible = false
+		outfit_2.visible = true
+		outfit_3.visible = false
+		outfit_4.visible = false
+		outfit_5.visible = false
+		outfit_6.visible = false
+	elif OUTFIT == 3:
+		animation = outfit_3
+		outfit_1.visible = false
+		outfit_2.visible = false
+		outfit_3.visible = true
+		outfit_4.visible = false
+		outfit_5.visible = false
+		outfit_6.visible = false
+	elif OUTFIT == 4:
+		animation = outfit_4
+		outfit_1.visible = false
+		outfit_2.visible = false
+		outfit_3.visible = false
+		outfit_4.visible = true
+		outfit_5.visible = false
+		outfit_6.visible = false
+	elif OUTFIT == 5:
+		animation = outfit_5
+		outfit_1.visible = false
+		outfit_2.visible = false
+		outfit_3.visible = false
+		outfit_4.visible = false
+		outfit_5.visible = true
+		outfit_6.visible = false
+	elif OUTFIT == 6:
+		animation = outfit_6
+		outfit_1.visible = false
+		outfit_2.visible = false
+		outfit_3.visible = false
+		outfit_4.visible = false
+		outfit_5.visible = true
+		outfit_6.visible = true
 
 func _physics_process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	# Set Outfit
-	if OUTFIT == 1:
-		animation = outfit_1
-		outfit_2.visible = false
-	elif OUTFIT == 2:
-		animation = outfit_2
-		outfit_1.visible = false
+	# Coyote time
+	if is_on_floor():
+		if coyote_time_activated:
+			coyote_time_activated = false
+			coyote_timer.stop()
+	else:
+		if !coyote_time_activated:
+			coyote_timer.start()
+			coyote_time_activated = true
 	
-	# Jump
-	if (Input.is_action_just_pressed("up1") and CONTROLS == 1) or (Input.is_action_just_pressed("up2") and CONTROLS == 2):
+	# Jump with Buffer
+	if ((Input.is_action_just_pressed("up1") and CONTROLS == 1) or (Input.is_action_just_pressed("up2") and CONTROLS == 2)) and (!coyote_timer.is_stopped() or is_on_floor()):
+		jump_buffer_timer.start()
+	if is_on_floor() and !jump_buffer_timer.is_stopped():
 		jump()
 	
 	# Movement
@@ -72,5 +135,6 @@ func anims() -> void:
 
 # This function makes the player jump.
 func jump() -> void:
-	if is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	velocity.y = JUMP_VELOCITY
+	coyote_timer.stop()
+	coyote_time_activated = true

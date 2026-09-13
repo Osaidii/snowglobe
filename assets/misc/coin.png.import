@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgkbtpnmou1q3"
-path="res://.godot/imported/Idle.png-62340806100f7d2164cf561cf4d53776.ctex"
+uid="uid://cwi61vqhe4prj"
+path="res://.godot/imported/coin.png-308d8b4e99f6975e56144a2ce13aea75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/outfits/outfit 2/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-62340806100f7d2164cf561cf4d53776.ctex"]
+source_file="res://assets/misc/coin.png"
+dest_files=["res://.godot/imported/coin.png-308d8b4e99f6975e56144a2ce13aea75.ctex"]
 
 [params]
 
