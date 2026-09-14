@@ -7,6 +7,9 @@ const PLAYER = preload("uid://ct1ysgutbxa0y")
 @onready var match_making: Node2D = $MatchMaking
 @onready var match_node: Node2D = $Match
 
+func _ready() -> void:
+	Transition.scene_in()
+
 func _on_start_pressed() -> void:
 	match_making.visible = false
 	match_node.visible = true
