@@ -3,13 +3,27 @@
 [ext_resource type="Script" uid="uid://dyo41ovbwkrkp" path="res://scripts/main_menu.gd" id="1_5hgee"]
 [ext_resource type="Texture2D" uid="uid://d4f3dfnthsyrj" path="res://assets/maps/map 1/ground.png" id="2_12vek"]
 [ext_resource type="Texture2D" uid="uid://bpqmykybfqsyg" path="res://assets/maps/map 1/platforms.png" id="3_vsw8r"]
-[ext_resource type="Texture2D" uid="uid://d1fsm10o5vt0p" path="res://assets/play.png" id="4_ljdde"]
-[ext_resource type="Texture2D" uid="uid://p4ehtwf53cvk" path="res://assets/title.png" id="4_oy07q"]
-[ext_resource type="Texture2D" uid="uid://cegahcr1vkstu" path="res://assets/settings.png" id="5_oy07q"]
-[ext_resource type="Texture2D" uid="uid://b0n2ff6abdoi3" path="res://assets/exit.png" id="6_c1qw6"]
-[ext_resource type="Texture2D" uid="uid://cyqhk658olggm" path="res://assets/create.png" id="8_4w47j"]
-[ext_resource type="Texture2D" uid="uid://dtdxjjdafrl3b" path="res://assets/back.png" id="8_fak3k"]
-[ext_resource type="Texture2D" uid="uid://cx8538ih7d0im" path="res://assets/join.png" id="9_c1qw6"]
+[ext_resource type="Texture2D" uid="uid://d1fsm10o5vt0p" path="res://assets/buttons/play.png" id="4_ljdde"]
+[ext_resource type="Texture2D" uid="uid://p4ehtwf53cvk" path="res://assets/buttons/title.png" id="4_oy07q"]
+[ext_resource type="Texture2D" uid="uid://cegahcr1vkstu" path="res://assets/buttons/settings.png" id="5_oy07q"]
+[ext_resource type="Texture2D" uid="uid://ctfw0202p0dnc" path="res://assets/buttons/play pressed.png" id="6_1xahd"]
+[ext_resource type="Texture2D" uid="uid://b0n2ff6abdoi3" path="res://assets/buttons/exit.png" id="6_c1qw6"]
+[ext_resource type="Texture2D" uid="uid://ey1q0sww4oq1" path="res://assets/buttons/play hover.png" id="7_8s3t8"]
+[ext_resource type="Texture2D" uid="uid://cyqhk658olggm" path="res://assets/buttons/create.png" id="8_4w47j"]
+[ext_resource type="Texture2D" uid="uid://dtdxjjdafrl3b" path="res://assets/buttons/back.png" id="8_fak3k"]
+[ext_resource type="Texture2D" uid="uid://cx8538ih7d0im" path="res://assets/buttons/join.png" id="9_c1qw6"]
+[ext_resource type="Texture2D" uid="uid://di0adfsv3mrue" path="res://assets/buttons/settings pressed.png" id="9_wetyc"]
+[ext_resource type="Texture2D" uid="uid://bfeyad0sp2i73" path="res://assets/buttons/settings hover.png" id="10_e37nt"]
+[ext_resource type="Texture2D" uid="uid://d50tgb1bx10s" path="res://assets/buttons/settings disabled.png" id="11_hi11g"]
+[ext_resource type="Texture2D" uid="uid://csnbn88d7w46c" path="res://assets/buttons/exit pressed.png" id="13_csewp"]
+[ext_resource type="Texture2D" uid="uid://bsi351viqt2ev" path="res://assets/buttons/exit hover.png" id="14_i07pi"]
+[ext_resource type="Texture2D" uid="uid://ct06cn0m5jm4k" path="res://assets/buttons/create pressed.png" id="16_dwdy1"]
+[ext_resource type="Texture2D" uid="uid://drvkpq4wx83kj" path="res://assets/buttons/create hover.png" id="17_g8w3l"]
+[ext_resource type="Texture2D" uid="uid://chqvah2kys07n" path="res://assets/buttons/join pressed.png" id="19_h7arf"]
+[ext_resource type="Texture2D" uid="uid://bb0our2e6d4ms" path="res://assets/buttons/join hover.png" id="20_xc68h"]
+[ext_resource type="Texture2D" uid="uid://nw35e2h050iq" path="res://assets/buttons/join disabled.png" id="21_7psv8"]
+[ext_resource type="Texture2D" uid="uid://djokrwtcfgbjc" path="res://assets/buttons/back pressed.png" id="23_tdh66"]
+[ext_resource type="Texture2D" uid="uid://b7yimwsaymn38" path="res://assets/buttons/back hover.png" id="24_qjc1h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_km7eu"]
 texture = ExtResource("2_12vek")
@@ -716,10 +730,14 @@ offset_top = 203.0
 offset_right = 287.575
 offset_bottom = 221.0
 scale = Vector2(2.785, 2.785)
+focus_neighbor_top = NodePath("../Exit")
+focus_neighbor_bottom = NodePath("../Settings")
+focus_next = NodePath("../Settings")
+focus_previous = NodePath("../Exit")
 texture_normal = ExtResource("4_ljdde")
-texture_pressed = ExtResource("4_ljdde")
-texture_hover = ExtResource("4_ljdde")
-texture_focused = ExtResource("4_ljdde")
+texture_pressed = ExtResource("6_1xahd")
+texture_hover = ExtResource("7_8s3t8")
+texture_focused = ExtResource("7_8s3t8")
 
 [node name="Settings" type="TextureButton" parent="." unique_id=1153923682]
 offset_left = 224.29
@@ -727,10 +745,16 @@ offset_top = 261.98
 offset_right = 339.29028
 offset_bottom = 280.98
 scale = Vector2(1.58, 1.58)
+focus_neighbor_top = NodePath("../Play")
+focus_neighbor_bottom = NodePath("../Exit")
+focus_next = NodePath("../Exit")
+focus_previous = NodePath("../Play")
+disabled = true
 texture_normal = ExtResource("5_oy07q")
-texture_pressed = ExtResource("5_oy07q")
-texture_hover = ExtResource("5_oy07q")
-texture_focused = ExtResource("5_oy07q")
+texture_pressed = ExtResource("9_wetyc")
+texture_hover = ExtResource("10_e37nt")
+texture_disabled = ExtResource("11_hi11g")
+texture_focused = ExtResource("10_e37nt")
 
 [node name="Exit" type="TextureButton" parent="." unique_id=1895337368]
 offset_left = 262.57495
@@ -738,10 +762,14 @@ offset_top = 300.0
 offset_right = 322.57495
 offset_bottom = 316.0
 scale = Vector2(1.725, 1.725)
+focus_neighbor_top = NodePath("../Settings")
+focus_neighbor_bottom = NodePath("../Play")
+focus_next = NodePath("../Play")
+focus_previous = NodePath("../Settings")
 texture_normal = ExtResource("6_c1qw6")
-texture_pressed = ExtResource("6_c1qw6")
-texture_hover = ExtResource("6_c1qw6")
-texture_focused = ExtResource("6_c1qw6")
+texture_pressed = ExtResource("13_csewp")
+texture_hover = ExtResource("14_i07pi")
+texture_focused = ExtResource("14_i07pi")
 
 [node name="Create" type="TextureButton" parent="." unique_id=1524152053]
 offset_left = 666.0
@@ -749,10 +777,14 @@ offset_top = 196.0
 offset_right = 731.0001
 offset_bottom = 212.0
 scale = Vector2(2.15, 2.15)
+focus_neighbor_left = NodePath("../Join")
+focus_neighbor_bottom = NodePath("../Back")
+focus_next = NodePath("../Back")
+focus_previous = NodePath("../Join")
 texture_normal = ExtResource("8_4w47j")
-texture_pressed = ExtResource("8_4w47j")
-texture_hover = ExtResource("8_4w47j")
-texture_focused = ExtResource("8_4w47j")
+texture_pressed = ExtResource("16_dwdy1")
+texture_hover = ExtResource("17_g8w3l")
+texture_focused = ExtResource("17_g8w3l")
 
 [node name="Join" type="TextureButton" parent="." unique_id=534245066]
 offset_left = -149.0
@@ -760,10 +792,16 @@ offset_top = 195.0
 offset_right = -89.0
 offset_bottom = 211.0
 scale = Vector2(2.15, 2.15)
+focus_neighbor_right = NodePath("../Create")
+focus_neighbor_bottom = NodePath("../Back")
+focus_next = NodePath("../Create")
+focus_previous = NodePath("../Back")
+disabled = true
 texture_normal = ExtResource("9_c1qw6")
-texture_pressed = ExtResource("9_c1qw6")
-texture_hover = ExtResource("9_c1qw6")
-texture_focused = ExtResource("9_c1qw6")
+texture_pressed = ExtResource("19_h7arf")
+texture_hover = ExtResource("20_xc68h")
+texture_disabled = ExtResource("21_7psv8")
+texture_focused = ExtResource("20_xc68h")
 
 [node name="Back" type="TextureButton" parent="." unique_id=1832629436]
 offset_left = -55.0
@@ -771,10 +809,14 @@ offset_top = 301.0
 offset_right = -37.0
 offset_bottom = 319.00003
 scale = Vector2(2.3823528, 2.3823528)
+focus_neighbor_left = NodePath("../Join")
+focus_neighbor_top = NodePath("../Join")
+focus_neighbor_right = NodePath("../Create")
+focus_next = NodePath("../Join")
 texture_normal = ExtResource("8_fak3k")
-texture_pressed = ExtResource("8_fak3k")
-texture_hover = ExtResource("8_fak3k")
-texture_focused = ExtResource("8_fak3k")
+texture_pressed = ExtResource("23_tdh66")
+texture_hover = ExtResource("24_qjc1h")
+texture_focused = ExtResource("24_qjc1h")
 
 [node name="Anims" type="AnimationPlayer" parent="." unique_id=19570868]
 libraries/ = SubResource("AnimationLibrary_fak3k")

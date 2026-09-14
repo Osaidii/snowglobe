@@ -1,6 +1,12 @@
 [gd_scene format=3 uid="uid://sdkadgq6g1mq"]
 
 [ext_resource type="Script" uid="uid://dxxdyldjdwfvc" path="res://scripts/matchandmaking.gd" id="1_t252k"]
+[ext_resource type="Texture2D" uid="uid://b8m2arqi4bpm3" path="res://assets/buttons/start.png" id="2_dkfpw"]
+[ext_resource type="Texture2D" uid="uid://dgijrtvg7uq4r" path="res://assets/buttons/start pressed.png" id="3_lvr0n"]
+[ext_resource type="Texture2D" uid="uid://cw84tgupxqrfa" path="res://assets/buttons/start hover.png" id="4_7qvq7"]
+[ext_resource type="Texture2D" uid="uid://dtdxjjdafrl3b" path="res://assets/buttons/back.png" id="5_dh83l"]
+[ext_resource type="Texture2D" uid="uid://djokrwtcfgbjc" path="res://assets/buttons/back pressed.png" id="6_wke1h"]
+[ext_resource type="Texture2D" uid="uid://b7yimwsaymn38" path="res://assets/buttons/back hover.png" id="7_vnuik"]
 
 [node name="Match and Making" type="Node2D" unique_id=1325832673]
 script = ExtResource("1_t252k")
@@ -12,13 +18,31 @@ offset_right = 640.0
 offset_bottom = 360.0
 color = Color(0, 0.7254902, 1, 1)
 
-[node name="Start" type="Button" parent="MatchMaking" unique_id=1437902470]
-offset_left = 568.0
-offset_top = 309.0
-offset_right = 614.0
-offset_bottom = 340.0
-text = "Start"
+[node name="Start" type="TextureButton" parent="MatchMaking" unique_id=1276765627]
+offset_left = 486.0
+offset_top = 310.0
+offset_right = 551.0
+offset_bottom = 326.0
+scale = Vector2(2.05, 2.05)
+focus_neighbor_left = NodePath("../Back")
+texture_normal = ExtResource("2_dkfpw")
+texture_pressed = ExtResource("3_lvr0n")
+texture_hover = ExtResource("4_7qvq7")
+texture_focused = ExtResource("4_7qvq7")
+
+[node name="Back" type="TextureButton" parent="MatchMaking" unique_id=1663141699]
+offset_left = 447.0
+offset_top = 310.0
+offset_right = 465.0
+offset_bottom = 328.0
+scale = Vector2(1.817, 1.817)
+focus_neighbor_right = NodePath("../Start")
+texture_normal = ExtResource("5_dh83l")
+texture_pressed = ExtResource("6_wke1h")
+texture_hover = ExtResource("7_vnuik")
+texture_focused = ExtResource("7_vnuik")
 
 [node name="Match" type="Node2D" parent="." unique_id=161910445]
 
 [connection signal="pressed" from="MatchMaking/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MatchMaking/Back" to="." method="_on_back_pressed"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx8538ih7d0im"
-path="res://.godot/imported/join.png-45781f786ad4a1d274caf12ef2ab6242.ctex"
+uid="uid://nw35e2h050iq"
+path="res://.godot/imported/join disabled.png-b8cacc3b10beae54cbc8deaccf22fb0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/join.png"
-dest_files=["res://.godot/imported/join.png-45781f786ad4a1d274caf12ef2ab6242.ctex"]
+source_file="res://assets/buttons/join disabled.png"
+dest_files=["res://.godot/imported/join disabled.png-b8cacc3b10beae54cbc8deaccf22fb0f.ctex"]
 
 [params]
 
