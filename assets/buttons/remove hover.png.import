@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3sqdew4xr106"
-path="res://.godot/imported/ground.png-6dc23fa4307d7649b21e32aa391ddc90.ctex"
+uid="uid://dalqdhtqqgye5"
+path="res://.godot/imported/remove hover.png-420aef759336ecce771bb4df3a75cb1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/maps/map 3/ground.png"
-dest_files=["res://.godot/imported/ground.png-6dc23fa4307d7649b21e32aa391ddc90.ctex"]
+source_file="res://assets/buttons/remove hover.png"
+dest_files=["res://.godot/imported/remove hover.png-420aef759336ecce771bb4df3a75cb1a.ctex"]
 
 [params]
 

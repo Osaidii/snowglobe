@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3sqdew4xr106"
-path="res://.godot/imported/ground.png-6dc23fa4307d7649b21e32aa391ddc90.ctex"
+uid="uid://1p4payppffkr"
+path="res://.godot/imported/controls hover.png-6e123d6c51ab66278947aed89295ba85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/maps/map 3/ground.png"
-dest_files=["res://.godot/imported/ground.png-6dc23fa4307d7649b21e32aa391ddc90.ctex"]
+source_file="res://assets/buttons/controls hover.png"
+dest_files=["res://.godot/imported/controls hover.png-6e123d6c51ab66278947aed89295ba85.ctex"]
 
 [params]
 

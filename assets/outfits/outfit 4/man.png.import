@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3sqdew4xr106"
-path="res://.godot/imported/ground.png-6dc23fa4307d7649b21e32aa391ddc90.ctex"
+uid="uid://31115thway27"
+path="res://.godot/imported/man.png-1998af4813e505ff72d1c2655971614a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/maps/map 3/ground.png"
-dest_files=["res://.godot/imported/ground.png-6dc23fa4307d7649b21e32aa391ddc90.ctex"]
+source_file="res://assets/outfits/outfit 4/man.png"
+dest_files=["res://.godot/imported/man.png-1998af4813e505ff72d1c2655971614a.ctex"]
 
 [params]
 

@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func _on_play_pressed() -> void:
 	anims.play("play")
-	join.grab_focus()
+	create.grab_focus()
 
 func _on_back_pressed() -> void:
 	anims.play("back")

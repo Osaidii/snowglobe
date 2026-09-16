@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdbbqkmwlao2f"
-path="res://.godot/imported/Houses_Mystical_Forest.png-186ce9c2eb8894cbea32ac5991db0c1c.ctex"
+uid="uid://207h1vpugp8v"
+path="res://.godot/imported/player 2.png-c39934f8fc9343faaaf3f8639d1a492f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/maps/map 3/Houses_Mystical_Forest.png"
-dest_files=["res://.godot/imported/Houses_Mystical_Forest.png-186ce9c2eb8894cbea32ac5991db0c1c.ctex"]
+source_file="res://assets/titles/player 2.png"
+dest_files=["res://.godot/imported/player 2.png-c39934f8fc9343faaaf3f8639d1a492f.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dk7rek7g4uygw"
-path="res://.godot/imported/Decor.png-fe292c62a51c275c561e3a67a986d0af.ctex"
+uid="uid://dxpqtx1e7afx0"
+path="res://.godot/imported/decor.png-26fe668694af7eb983cb6a47aac0116d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/maps/map 2/Decor.png"
-dest_files=["res://.godot/imported/Decor.png-fe292c62a51c275c561e3a67a986d0af.ctex"]
+source_file="res://assets/maps/map 2/decor.png"
+dest_files=["res://.godot/imported/decor.png-26fe668694af7eb983cb6a47aac0116d.ctex"]
 
 [params]
 

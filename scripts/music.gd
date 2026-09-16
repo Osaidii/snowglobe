@@ -9,5 +9,5 @@ func _on_music_finished() -> void:
 	current_music_number += 1
 	if current_music_number >= get_child_count():
 		current_music_number = 0
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(5.0).timeout
 	get_child(current_music_number).playing = true
