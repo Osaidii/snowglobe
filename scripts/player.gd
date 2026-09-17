@@ -1,7 +1,7 @@
+class_name Player
 extends CharacterBody2D
 
 @export_category("Instance")
-@export var ID := 1
 @export var CONTROLS := 1
 @export var OUTFIT := 1
 @export_category("Stats")
@@ -9,6 +9,7 @@ extends CharacterBody2D
 @export var TAGGER_SPEED := 140
 @export var JUMP_VELOCITY = -240.0
 @export_category("Data")
+@export var CAN_CONTROL := false
 @export var IS_TAGGER := false
 
 @onready var coyote_timer: Timer = $"Coyote Timer"
@@ -19,14 +20,15 @@ extends CharacterBody2D
 @onready var outfit_4: AnimatedSprite2D = $"Outfit 4"
 @onready var outfit_5: AnimatedSprite2D = $"Outfit 5"
 @onready var outfit_6: AnimatedSprite2D = $"Outfit 6"
+@onready var bomb: Sprite2D = $Bomb
 
 var animation: AnimatedSprite2D
 var direction := 0.0
 var coyote_time_activated := false
 var jump_buffer := false
 
+# This function sets the player up.
 func _ready() -> void:
-	# Set Outfit
 	if OUTFIT == 1:
 		animation = outfit_1
 		outfit_1.visible = true
@@ -76,6 +78,7 @@ func _ready() -> void:
 		outfit_5.visible = false
 		outfit_6.visible = true
 
+# This function contains all the player logic.
 func _physics_process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():
@@ -110,26 +113,31 @@ func _physics_process(delta: float) -> void:
 		elif CONTROLS == 6 and Input.is_action_just_released("up6"):
 			velocity.y *= 0.5
 	
+	# Tagger Logic
+	if IS_TAGGER:
+		bomb.visible = true
+	
 	# Movement
-	if CONTROLS == 1:
-		direction = Input.get_axis("left1", "right1")
-	elif CONTROLS == 2:
-		direction = Input.get_axis("left2", "right2")
-	elif CONTROLS == 3:
-		direction = Input.get_axis("left3", "right3")
-	elif CONTROLS == 4:
-		direction = Input.get_axis("left4", "right4")
-	elif CONTROLS == 5:
-		direction = Input.get_axis("left5", "right5")
-	elif CONTROLS == 6:
-		direction = Input.get_axis("left6", "right6")
-	if direction:
-		if IS_TAGGER:
-			velocity.x = direction * TAGGER_SPEED
-		elif !IS_TAGGER:
-			velocity.x = direction * NORMAL_SPEED 
-	else:
-		velocity.x = move_toward(velocity.x, 0, 1200 * delta)
+	if CAN_CONTROL:
+		if CONTROLS == 1:
+			direction = Input.get_axis("left1", "right1")
+		elif CONTROLS == 2:
+			direction = Input.get_axis("left2", "right2")
+		elif CONTROLS == 3:
+			direction = Input.get_axis("left3", "right3")
+		elif CONTROLS == 4:
+			direction = Input.get_axis("left4", "right4")
+		elif CONTROLS == 5:
+			direction = Input.get_axis("left5", "right5")
+		elif CONTROLS == 6:
+			direction = Input.get_axis("left6", "right6")
+		if direction:
+			if IS_TAGGER:
+				velocity.x = direction * TAGGER_SPEED
+			elif !IS_TAGGER:
+				velocity.x = direction * NORMAL_SPEED 
+		else:
+			velocity.x = move_toward(velocity.x, 0, 1200 * delta)
 	move_and_slide()
 	
 	# Turn
@@ -142,8 +150,12 @@ func _physics_process(delta: float) -> void:
 func face_direction() -> void:
 	if direction > 0:
 		animation.flip_h = false
+		bomb.position.x * -1
+		bomb.flip_h = true
 	elif direction < 0:
 		animation.flip_h = true
+		bomb.position.x * -1
+		bomb.flip_h = true
 
 # This function plays the animation.
 func anims() -> void:
@@ -156,6 +168,8 @@ func anims() -> void:
 
 # This function makes the player jump.
 func jump() -> void:
+	if !CAN_CONTROL:
+		return
 	velocity.y = JUMP_VELOCITY
 	coyote_timer.stop()
 	coyote_time_activated = true

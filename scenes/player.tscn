@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cky5xjyl1g8kg" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://df3r8l1qnmtpl" path="res://assets/outfits/outfit 1/knight.png" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://2b7lhfio42yy" path="res://assets/misc/bomb.png" id="2_oprun"]
 [ext_resource type="Texture2D" uid="uid://cgkbtpnmou1q3" path="res://assets/outfits/outfit 2/Idle.png" id="3_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://cuy3pvi7y51ov" path="res://assets/outfits/outfit 2/Jump.png" id="4_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://d3csr50076rdd" path="res://assets/outfits/outfit 2/Run.png" id="4_tuyoq"]
@@ -877,6 +878,12 @@ size = Vector2(6, 8)
 
 [node name="Player" type="CharacterBody2D" unique_id=1293127792]
 script = ExtResource("1_3vyb7")
+
+[node name="Bomb" type="Sprite2D" parent="." unique_id=1002684097]
+visible = false
+position = Vector2(-6.9999995, -5.684342e-14)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_oprun")
 
 [node name="Outfit 1" type="AnimatedSprite2D" parent="." unique_id=1597632972]
 visible = false

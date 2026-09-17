@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nw35e2h050iq"
-path="res://.godot/imported/join disabled.png-b8cacc3b10beae54cbc8deaccf22fb0f.ctex"
+uid="uid://ipt35rbtfgq4"
+path="res://.godot/imported/green light.png-cb692407ec4eef21bce28f640cc006c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/join disabled.png"
-dest_files=["res://.godot/imported/join disabled.png-b8cacc3b10beae54cbc8deaccf22fb0f.ctex"]
+source_file="res://assets/titles/green light.png"
+dest_files=["res://.godot/imported/green light.png-cb692407ec4eef21bce28f640cc006c1.ctex"]
 
 [params]
 

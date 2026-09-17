@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3rdlla0hfcx"
-path="res://.godot/imported/create disabled.png-9cde04f51f2e56f17367eaa5d7f22eed.ctex"
+uid="uid://gju78764m0k7"
+path="res://.godot/imported/red light.png-4e158eca7dabb9677c538a67a8ffffba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/create disabled.png"
-dest_files=["res://.godot/imported/create disabled.png-9cde04f51f2e56f17367eaa5d7f22eed.ctex"]
+source_file="res://assets/titles/red light.png"
+dest_files=["res://.godot/imported/red light.png-4e158eca7dabb9677c538a67a8ffffba.ctex"]
 
 [params]
 

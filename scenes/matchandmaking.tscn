@@ -22,7 +22,10 @@
 [ext_resource type="Texture2D" uid="uid://b5wv37bjsise8" path="res://assets/outfits/outfit 5/Run.png" id="20_1xjjw"]
 [ext_resource type="Texture2D" uid="uid://bu5hag5h25yd1" path="res://assets/outfits/outfit 6/Idle.png" id="21_jeo4q"]
 [ext_resource type="Texture2D" uid="uid://c8keaxmmby2d4" path="res://assets/outfits/outfit 6/Jump.png" id="22_anrbm"]
+[ext_resource type="Texture2D" uid="uid://ckbfvy8wqi6xg" path="res://assets/buttons/remove.png" id="22_r17nh"]
+[ext_resource type="Texture2D" uid="uid://cnj5wydtr7h8w" path="res://assets/buttons/remove pressed.png" id="23_lqmox"]
 [ext_resource type="Texture2D" uid="uid://7y75b8bp8m3t" path="res://assets/outfits/outfit 6/Run.png" id="23_xqnht"]
+[ext_resource type="Texture2D" uid="uid://dalqdhtqqgye5" path="res://assets/buttons/remove hover.png" id="24_fn7kg"]
 [ext_resource type="Texture2D" uid="uid://ya5gi2frw8h6" path="res://assets/titles/player 1.png" id="24_y2fpn"]
 [ext_resource type="Texture2D" uid="uid://207h1vpugp8v" path="res://assets/titles/player 2.png" id="25_hup1r"]
 [ext_resource type="Texture2D" uid="uid://c8ygtwvc3v4ds" path="res://assets/titles/player 3.png" id="26_w3w8l"]
@@ -32,6 +35,10 @@
 [ext_resource type="Texture2D" uid="uid://bvakid84qaiyp" path="res://assets/titles/player 4.png" id="30_6f51d"]
 [ext_resource type="Texture2D" uid="uid://ctcy6wgw7m6e8" path="res://assets/titles/player 5.png" id="31_bdx22"]
 [ext_resource type="Texture2D" uid="uid://cgwpi1bm3hjfn" path="res://assets/titles/player 6.png" id="32_2maol"]
+[ext_resource type="FontFile" uid="uid://cmnkdnb8mttwc" path="res://assets/fonts/monogram.ttf" id="36_lqmox"]
+[ext_resource type="Texture2D" uid="uid://gju78764m0k7" path="res://assets/titles/red light.png" id="37_q1dib"]
+[ext_resource type="Texture2D" uid="uid://b1um7jscwjtd3" path="res://assets/titles/yellow light.png" id="38_1mdks"]
+[ext_resource type="Texture2D" uid="uid://ipt35rbtfgq4" path="res://assets/titles/green light.png" id="39_gbx8y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("11_r17nh")
@@ -890,6 +897,143 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_fn7kg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Messages/Remove Error:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Messages/Remove Error:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(104, 362.29)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../HUD/Red Light:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../HUD/Yellow Light:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../HUD/Green Light:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_5k4tu"]
+resource_name = "countdown"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../HUD/Red Light:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../HUD/Yellow Light:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../HUD/Green Light:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_s0sb5"]
+resource_name = "remove error"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Messages/Remove Error:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.99, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(104, 104), Vector2(104, 238), Vector2(104, 362.29)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Messages/Remove Error:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q1dib"]
+_data = {
+&"RESET": SubResource("Animation_fn7kg"),
+&"countdown": SubResource("Animation_5k4tu"),
+&"remove error": SubResource("Animation_s0sb5")
+}
+
 [node name="Match and Making" type="Node2D" unique_id=1325832673]
 script = ExtResource("1_t252k")
 
@@ -1003,12 +1147,28 @@ offset_top = -1.7756255
 offset_right = 15.740113
 offset_bottom = 16.224375
 scale = Vector2(0.265, 0.265)
+focus_neighbor_right = NodePath("../../4/Add")
 focus_neighbor_bottom = NodePath("../../../Controls")
 focus_next = NodePath("../../../Controls")
 texture_normal = ExtResource("27_x807v")
 texture_pressed = ExtResource("28_u8j7f")
 texture_hover = ExtResource("29_xnqjf")
 texture_focused = ExtResource("29_xnqjf")
+
+[node name="Remove" type="TextureButton" parent="MatchMaking/PlayerPoints/3" unique_id=804787863]
+visible = false
+offset_left = -9.975
+offset_top = -9.749
+offset_right = 8.025
+offset_bottom = 8.251
+scale = Vector2(0.16, 0.16)
+focus_neighbor_right = NodePath("../../4/Add")
+focus_neighbor_bottom = NodePath("../../6/Add")
+focus_next = NodePath("../../6/Add")
+texture_normal = ExtResource("22_r17nh")
+texture_pressed = ExtResource("23_lqmox")
+texture_hover = ExtResource("24_fn7kg")
+texture_focused = ExtResource("24_fn7kg")
 
 [node name="4" type="Node2D" parent="MatchMaking/PlayerPoints" unique_id=24603470]
 position = Vector2(524, 121)
@@ -1035,12 +1195,28 @@ offset_top = -1.7756255
 offset_right = 15.740113
 offset_bottom = 16.224375
 scale = Vector2(0.265, 0.265)
+focus_neighbor_left = NodePath("../../3/Remove")
 focus_neighbor_bottom = NodePath("../../../Start")
 focus_next = NodePath("../../../Start")
 texture_normal = ExtResource("27_x807v")
 texture_pressed = ExtResource("28_u8j7f")
 texture_hover = ExtResource("29_xnqjf")
 texture_focused = ExtResource("29_xnqjf")
+
+[node name="Remove" type="TextureButton" parent="MatchMaking/PlayerPoints/4" unique_id=67589546]
+visible = false
+offset_left = -9.846649
+offset_top = -10.00807
+offset_right = 8.153351
+offset_bottom = 7.99193
+scale = Vector2(0.16, 0.16)
+focus_neighbor_left = NodePath("../../3/Remove")
+focus_neighbor_bottom = NodePath("../../../Start")
+focus_next = NodePath("../../../Start")
+texture_normal = ExtResource("22_r17nh")
+texture_pressed = ExtResource("23_lqmox")
+texture_hover = ExtResource("24_fn7kg")
+texture_focused = ExtResource("24_fn7kg")
 
 [node name="5" type="Node2D" parent="MatchMaking/PlayerPoints" unique_id=1499962818]
 position = Vector2(103, 258)
@@ -1067,12 +1243,30 @@ offset_top = -1.7756255
 offset_right = 15.740113
 offset_bottom = 16.224375
 scale = Vector2(0.265, 0.265)
+focus_neighbor_top = NodePath("../../3/Remove")
+focus_neighbor_right = NodePath("../../6/Add")
 focus_neighbor_bottom = NodePath("../../../Controls")
 focus_next = NodePath("../../../Controls")
 texture_normal = ExtResource("27_x807v")
 texture_pressed = ExtResource("28_u8j7f")
 texture_hover = ExtResource("29_xnqjf")
 texture_focused = ExtResource("29_xnqjf")
+
+[node name="Remove" type="TextureButton" parent="MatchMaking/PlayerPoints/5" unique_id=1359187759]
+visible = false
+offset_left = -10.169491
+offset_top = -10.00807
+offset_right = 7.830509
+offset_bottom = 7.99193
+scale = Vector2(0.16, 0.16)
+focus_neighbor_top = NodePath("../../3/Remove")
+focus_neighbor_right = NodePath("../../6/Add")
+focus_neighbor_bottom = NodePath("../../../Back")
+focus_next = NodePath("../../../Controls")
+texture_normal = ExtResource("22_r17nh")
+texture_pressed = ExtResource("23_lqmox")
+texture_hover = ExtResource("24_fn7kg")
+texture_focused = ExtResource("24_fn7kg")
 
 [node name="6" type="Node2D" parent="MatchMaking/PlayerPoints" unique_id=244088503]
 position = Vector2(240, 258)
@@ -1099,6 +1293,9 @@ offset_top = -1.7756255
 offset_right = 15.740113
 offset_bottom = 16.224375
 scale = Vector2(0.265, 0.265)
+focus_neighbor_left = NodePath("../../5/Remove")
+focus_neighbor_top = NodePath("../../3/Remove")
+focus_neighbor_right = NodePath("../../4/Remove")
 focus_neighbor_bottom = NodePath("../../../Controls")
 focus_next = NodePath("../../../Controls")
 texture_normal = ExtResource("27_x807v")
@@ -1106,14 +1303,75 @@ texture_pressed = ExtResource("28_u8j7f")
 texture_hover = ExtResource("29_xnqjf")
 texture_focused = ExtResource("29_xnqjf")
 
-[node name="Controls Menu" type="Node2D" parent="MatchMaking" unique_id=1866205458]
-position = Vector2(0, -2)
+[node name="Remove" type="TextureButton" parent="MatchMaking/PlayerPoints/6" unique_id=698949550]
+visible = false
+offset_left = -9.975
+offset_top = -9.749
+offset_right = 8.025
+offset_bottom = 8.251
+scale = Vector2(0.16, 0.16)
+focus_neighbor_left = NodePath("../../5/Remove")
+focus_neighbor_top = NodePath("../../3/Remove")
+focus_neighbor_right = NodePath("../../../Controls")
+focus_neighbor_bottom = NodePath("../../../Controls")
+focus_next = NodePath("../../../Controls")
+texture_normal = ExtResource("22_r17nh")
+texture_pressed = ExtResource("23_lqmox")
+texture_hover = ExtResource("24_fn7kg")
+texture_focused = ExtResource("24_fn7kg")
+
+[node name="Anims" type="AnimationPlayer" parent="MatchMaking" unique_id=610888069]
+libraries/ = SubResource("AnimationLibrary_q1dib")
+
+[node name="Messages" type="Node2D" parent="MatchMaking" unique_id=1203682120]
+
+[node name="Remove Error" type="Label" parent="MatchMaking/Messages" unique_id=775923956]
+offset_left = 104.0
+offset_top = 362.29
+offset_right = 534.0
+offset_bottom = 398.29016
+theme_override_colors/font_color = Color(1, 0, 0.12941177, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("36_lqmox")
+theme_override_font_sizes/font_size = 44
+text = "Remove Latest Player First"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Match" type="Node2D" parent="." unique_id=161910445]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1456594037]
+
+[node name="Red Light" type="Sprite2D" parent="HUD" unique_id=2123837355]
+visible = false
+position = Vector2(320, 180)
+scale = Vector2(2.045, 2.045)
+texture = ExtResource("37_q1dib")
+
+[node name="Yellow Light" type="Sprite2D" parent="HUD" unique_id=1303461050]
+visible = false
+position = Vector2(320, 180)
+scale = Vector2(2.045, 2.045)
+texture = ExtResource("38_1mdks")
+
+[node name="Green Light" type="Sprite2D" parent="HUD" unique_id=1730387138]
+visible = false
+position = Vector2(320, 180)
+scale = Vector2(2.045, 2.045)
+texture = ExtResource("39_gbx8y")
+
+[node name="Death Timer" type="Timer" parent="." unique_id=2077930211]
+wait_time = 25.0
+one_shot = true
 
 [connection signal="pressed" from="MatchMaking/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MatchMaking/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="MatchMaking/PlayerPoints/3/Add" to="." method="_on_add_3_pressed"]
+[connection signal="pressed" from="MatchMaking/PlayerPoints/3/Remove" to="." method="_on_remove_3_pressed"]
 [connection signal="pressed" from="MatchMaking/PlayerPoints/4/Add" to="." method="_on_add_4_pressed"]
+[connection signal="pressed" from="MatchMaking/PlayerPoints/4/Remove" to="." method="_on_remove_4_pressed"]
 [connection signal="pressed" from="MatchMaking/PlayerPoints/5/Add" to="." method="_on_add_5_pressed"]
+[connection signal="pressed" from="MatchMaking/PlayerPoints/5/Remove" to="." method="_on_remove_5_pressed"]
 [connection signal="pressed" from="MatchMaking/PlayerPoints/6/Add" to="." method="_on_add_6_pressed"]
+[connection signal="pressed" from="MatchMaking/PlayerPoints/6/Remove" to="." method="_on_remove_6_pressed"]
+[connection signal="timeout" from="Death Timer" to="." method="_on_death_timer_timeout"]
