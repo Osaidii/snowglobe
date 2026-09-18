@@ -26,6 +26,7 @@ var animation: AnimatedSprite2D
 var direction := 0.0
 var coyote_time_activated := false
 var jump_buffer := false
+var hitbox_activated := false
 
 # This function sets the player up.
 func _ready() -> void:
@@ -116,6 +117,8 @@ func _physics_process(delta: float) -> void:
 	# Tagger Logic
 	if IS_TAGGER:
 		bomb.visible = true
+	else:
+		bomb.visible = false
 	
 	# Movement
 	if CAN_CONTROL:
@@ -150,11 +153,11 @@ func _physics_process(delta: float) -> void:
 func face_direction() -> void:
 	if direction > 0:
 		animation.flip_h = false
-		bomb.position.x * -1
+		bomb.position.x = -7
 		bomb.flip_h = true
 	elif direction < 0:
 		animation.flip_h = true
-		bomb.position.x * -1
+		bomb.position.x  = 7
 		bomb.flip_h = true
 
 # This function plays the animation.
@@ -173,3 +176,19 @@ func jump() -> void:
 	velocity.y = JUMP_VELOCITY
 	coyote_timer.stop()
 	coyote_time_activated = true
+
+func _on_hitbox_checker_body_entered(body: Node2D) -> void:
+	if body is Player:
+		if hitbox_activated:
+			return
+		hitbox_activated = true
+		if !self.IS_TAGGER:
+			IS_TAGGER = true
+			body.IS_TAGGER = false
+		if self.IS_TAGGER:
+			IS_TAGGER = false
+			body.IS_TAGGER = true
+
+func _on_hitbox_checker_body_exited(body: Node2D) -> void:
+	if body is Player:
+		hitbox_activated = false

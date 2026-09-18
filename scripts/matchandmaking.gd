@@ -15,6 +15,14 @@ const PLAYER = preload("uid://ct1ysgutbxa0y")
 @onready var back: TextureButton = $MatchMaking/Back
 @onready var controls: TextureButton = $MatchMaking/Controls
 @onready var death_timer: Timer = $"Death Timer"
+@onready var bomb_on: Sprite2D = $"HUD/Bomb On"
+@onready var outfit_1: AnimatedSprite2D = $"HUD/Outfit 1"
+@onready var outfit_2: AnimatedSprite2D = $"HUD/Outfit 2"
+@onready var outfit_3: AnimatedSprite2D = $"HUD/Outfit 3"
+@onready var outfit_4: AnimatedSprite2D = $"HUD/Outfit 4"
+@onready var outfit_5: AnimatedSprite2D = $"HUD/Outfit 5"
+@onready var outfit_6: AnimatedSprite2D = $"HUD/Outfit 6"
+@onready var timer: Label = $HUD/Timer
 
 var player1: Player
 var player2: Player
@@ -34,24 +42,31 @@ func _ready() -> void:
 
 # This function gives the bomb randomly to another player.
 func random_bomb() -> void:
-	var temp_array = []
-	for i in range(players_alive):
-		temp_array.append(i + 1)
-	temp_array.shuffle()
-	match temp_array[0]:
-		1:
-			player1.IS_TAGGER = true
-		2: 
-			player2.IS_TAGGER = true
-		3:
-			player3.IS_TAGGER = true
-		4:
-			player4.IS_TAGGER = true
-		5:
-			player5.IS_TAGGER = true
-		6:
-			player6.IS_TAGGER = true
+	var living = []
+	if player1 != null: living.append(player1)
+	if player2 != null: living.append(player2)
+	if player3 != null: living.append(player3)
+	if player4 != null: living.append(player4)
+	if player5 != null: living.append(player5)
+	if player6 != null: living.append(player6)
+	if living.is_empty():
+		return
+	var chosen = living.pick_random()
+	outfit_1.visible = false
+	outfit_2.visible = false
+	outfit_3.visible = false
+	outfit_4.visible = false
+	outfit_5.visible = false
+	outfit_6.visible = false
+	chosen.IS_TAGGER = true
+	if chosen == player1: outfit_1.visible = true
+	elif chosen == player2: outfit_2.visible = true
+	elif chosen == player3: outfit_3.visible = true
+	elif chosen == player4: outfit_4.visible = true
+	elif chosen == player5: outfit_5.visible = true
+	elif chosen == player6: outfit_6.visible = true
 	death_timer.start()
+	anims.play("timer")
 
 func kill_player(player) -> void:
 	if player == null:
@@ -70,6 +85,7 @@ func _on_start_pressed() -> void:
 	start_match()
 
 func show_winner() -> void:
+	bomb_on.visible = false
 	death_timer.stop()
 	if player1 != null:
 		winner = player1
@@ -107,12 +123,16 @@ func start_match() -> void:
 		player6.CAN_CONTROL = true
 	match_running = true
 	random_bomb()
+	bomb_on.visible = true
+	timer.visible = true
 
 # This function instatiates player with data provided.
-func instantiate_player(outfit_number, controls_number, positon: Vector2):
+func instantiate_player(outfit_number, controls_number, collision_layer, positon: Vector2):
 	var instance  = PLAYER.instantiate()
 	instance.OUTFIT = outfit_number
 	instance.CONTROLS = controls_number
+	instance.collision_layer = collision_layer
+	instance.collision_mask = collision_layer
 	match_node.add_child(instance)
 	instance.global_position = positon
 	return instance
@@ -135,16 +155,16 @@ func instantiate_everything() -> void:
 	match_making.visible = false
 	match_node.visible = true
 	instantiate_map(1)
-	player1 = instantiate_player(1, 1, match_node.get_child(0).get_child(0).get_child(random_array[0]).global_position)
-	player2 = instantiate_player(2, 2, match_node.get_child(0).get_child(0).get_child(random_array[1]).global_position)
+	player1 = instantiate_player(1, 1, 3, match_node.get_child(0).get_child(0).get_child(random_array[0]).global_position)
+	player2 = instantiate_player(2, 2, 4, match_node.get_child(0).get_child(0).get_child(random_array[1]).global_position)
 	if _3.get_child(1).visible:
-		player3 = instantiate_player(3, 3, match_node.get_child(0).get_child(0).get_child(random_array[2]).global_position)
+		player3 = instantiate_player(3, 3, 5, match_node.get_child(0).get_child(0).get_child(random_array[2]).global_position)
 	if _4.get_child(1).visible:
-		player4 = instantiate_player(4, 4, match_node.get_child(0).get_child(0).get_child(random_array[3]).global_position)
+		player4 = instantiate_player(4, 4, 6, match_node.get_child(0).get_child(0).get_child(random_array[3]).global_position)
 	if _5.get_child(1).visible:
-		player5 = instantiate_player(5, 5, match_node.get_child(0).get_child(0).get_child(random_array[4]).global_position)
+		player5 = instantiate_player(5, 5, 7, match_node.get_child(0).get_child(0).get_child(random_array[4]).global_position)
 	if _6.get_child(1).visible:
-		player6 = instantiate_player(6, 6, match_node.get_child(0).get_child(0).get_child(random_array[5]).global_position)
+		player6 = instantiate_player(6, 6, 8, match_node.get_child(0).get_child(0).get_child(random_array[5]).global_position)
 	players_alive = amount_of_players
 
 # This function instantiaes the selected map.
@@ -175,6 +195,7 @@ func match_end():
 	await get_tree().create_timer(0.5).timeout
 	Transition.scene_in()
 	start.grab_focus()
+	winner = null
 
 # This function arranges the UI when a third player is added.
 func _on_add_3_pressed() -> void:
@@ -294,23 +315,42 @@ func _on_death_timer_timeout() -> void:
 		show_winner()
 		return
 	var player: Player
-	if player1.IS_TAGGER and player1 != null:
-		player = player1
-		player1 = null
-	if player2.IS_TAGGER and player2 != null:
-		player = player2
-		player2 = null
-	if player3.IS_TAGGER and player3 != null:
-		player = player3
-		player3 = null
-	if player4.IS_TAGGER and player4 != null:
-		player = player4
-		player4 = null
-	if player5.IS_TAGGER and player5 != null:
-		player = player5
-		player5 = null
-	if player6.IS_TAGGER and player6 != null:
-		player = player6
-		player6 = null
-	kill_player(player)
+	if player1 != null:
+		if player1.IS_TAGGER:
+			player = player1
+			kill_player(player)
+			player1 = null
+	if player2 != null:
+		if player2.IS_TAGGER:
+			player = player2
+			kill_player(player)
+			player2 = null
+	if player3 != null:
+		if player3.IS_TAGGER:
+			player = player3
+			kill_player(player)
+			player3 = null
+	if player4 != null:
+		if player4.IS_TAGGER:
+			player = player4
+			kill_player(player)
+			player4 = null
+	if player5 != null:
+		if player5.IS_TAGGER:
+			player = player5
+			kill_player(player)
+			player5 = null
+	if player6 != null:
+		if player6.IS_TAGGER:
+			player = player6
+			kill_player(player)
+			player6 = null
+	await get_tree().process_frame
 	random_bomb()
+
+func update_timer(number: int):
+	timer.text = str(number)
+	if number < 10:
+		timer.self_modulate = Color(255, 0, 0)
+	if number >= 10:
+		timer.self_modulate = Color(255, 255, 255)
